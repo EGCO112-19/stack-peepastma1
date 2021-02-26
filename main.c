@@ -65,7 +65,7 @@ int main(int argc, char **argv){
          if(out != '['){check = 1;break;}}
       }*/
      }
-     if(s.size>0 || check == 1){
+     if(s.size!=0 || check == 1){
        printf("The parentheses do not match for %s\n", argv[i]);
        pop_all(&s);
        check = 0;
