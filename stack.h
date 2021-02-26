@@ -43,7 +43,7 @@ void pop_all(StackPtr s)
     printf("Popping %c\n",value);
     free(t);
     t = s->top;
-    s->size = 0;
   }
+  s->size = 0;
 }
 #endif
