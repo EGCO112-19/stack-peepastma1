@@ -16,6 +16,7 @@ void push(StackPtr s, char value)
     new_node->data=value;
     new_node->nextPtr=s->top;
     s->top=new_node;
+    s->size+=1;
   }
 }
 char pop(StackPtr s)
@@ -27,6 +28,7 @@ char pop(StackPtr s)
   value=t->data;
   s->top=t->nextPtr;
   free(t);
+  s->size-=1;
   return value;
   }
 }

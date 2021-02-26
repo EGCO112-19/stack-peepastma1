@@ -18,60 +18,65 @@ int main(int argc, char **argv){
       if(argv[i][j] == '{')
        {
          push(&s,argv[i][j]);
-         s.size +=1;
        }
       if(argv[i][j] == '[')
        {
          push(&s,argv[i][j]);
-         s.size +=1;
        }
       if(argv[i][j] == '}')
         {
           out = pop(&s);
-          s.size -= 1;
           if(out != '{')
           {
              check = 1;
              break;
           }
-      }
+        }
       if(argv[i][j] == ']')
         {
           out = pop(&s);
-          s.size -= 1;
           if(out != '[')
           {
             check = 1;
             break;
           }
-      }
+        }
       /*switch(argv[i][j])
       {
         case '{' :
          push(&s,argv[i][j]);
-         s.size +=1;
+         break;
         case '[' :
          push(&s,argv[i][j]);
-         s.size +=1;
+         break;
         case '}' :
-         if(s.top!=NULL){
          out = pop(&s);
-         s.size -= 1;
-         if(out != '{'){check = 1;break;}}
+         if(out != '{')
+         {
+           check = 1;
+           break;
+         }
         case ']' :
-         if(s.top!=NULL){
          out = pop(&s);
-         s.size -= 1;
-         if(out != '['){check = 1;break;}}
+         if(out != '[')
+         {
+            check = 1;
+             break;
+         }
       }*/
      }
-     if(s.size!=0 || check == 1){
+     printf("%d",s.size);
+     if(s.size!=0 || check == 1)
+     {
        printf("The parentheses do not match for %s\n", argv[i]);
        pop_all(&s);
        check = 0;
      }
-     else{
-       printf("The parentheses match successfully for %s\n",argv[i]);}
+     else
+     {
+       printf("The parentheses match successfully for %s\n",argv[i]);
+     }
+     s.size=0;
   }
    return 0;
 }
